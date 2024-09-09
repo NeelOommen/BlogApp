@@ -1,9 +1,7 @@
 package com.neeloommen.article_backend.controllers;
 
 import com.neeloommen.article_backend.models.Article;
-import com.neeloommen.article_backend.models.User;
 import com.neeloommen.article_backend.services.ArticleService;
-import com.neeloommen.article_backend.services.ArticleServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
