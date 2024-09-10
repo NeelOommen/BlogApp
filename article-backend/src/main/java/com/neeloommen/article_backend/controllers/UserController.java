@@ -18,12 +18,12 @@ public class UserController {
         this.userService = _userService;
     }
 
-    @PostMapping("/user")
+    @PostMapping("/save")
     public User saveUser(@RequestBody User _user){
         return userService.saveUser(_user);
     }
 
-    @GetMapping("/user")
+    @GetMapping("/show")
     public List<User> getUserList(){
         return userService.getUserList();
     }

@@ -26,7 +26,7 @@ export default function Home() {
           </div>
 
           <div
-            className="w-full bg-gray-500 h-full px-4 py-2"
+            className="w-full h-full px-4 py-2"
           >
             {/* article view */}
             <ArticleCard />

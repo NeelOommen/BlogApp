@@ -2,16 +2,17 @@ package com.neeloommen.article_backend.controllers;
 
 import com.neeloommen.article_backend.models.Article;
 import com.neeloommen.article_backend.services.ArticleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/articles/")
 public class ArticleController {
     //Data Members
+    @Autowired
     private ArticleService articleService;
 
     //Methods
@@ -30,7 +31,7 @@ public class ArticleController {
         return articleService.getAllArticles();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get_article/{id}")
     public ResponseEntity<Article> getArticleById(@PathVariable("id") long _id){
         Article article = null;
         article = articleService.getArticleById(_id);

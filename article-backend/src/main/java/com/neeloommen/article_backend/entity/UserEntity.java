@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 @Table(name = "users")
 public class UserEntity {
     //Data members
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String userName;
     private String emailId;

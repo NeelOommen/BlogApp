@@ -18,3 +18,7 @@ buildNumber.properties
 
 #block ds store
 .DS_Store
+
+#block venv
+.venv
+.vscode

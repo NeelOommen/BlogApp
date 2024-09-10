@@ -1,7 +1,13 @@
 package com.neeloommen.article_backend.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "articles")
 public class ArticleEntity {
     //Data Members
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private long author_id;
     private String title;

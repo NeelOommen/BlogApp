@@ -1,15 +1,20 @@
 export default function ArticleCard(){
     return(
         <div
-            className="bg-gray-900 w-2/3 px-6 pb-4 h-full overflow-hidden text-[#faf8ff]"
+            className="bg-[#00848f] w-2/3 px-6 pb-4 h-96 overflow-y-hidden text-[#faf8ff] rounded-2xl"
         >
             <div
-                className="w-fit text-4xl font-bold my-3"
+                className="w-fit text-4xl font-bold mt-3"
             >
                 Title
             </div>
             <div
-                className="overflow-y-scroll h-full"
+                className="w-fit text-lg font-bold my-1"
+            >
+                by <span>Author</span>
+            </div>
+            <div
+                className="overflow-y-scroll h-full mb-4 bg-red-400"
             >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod urna in urna efficitur, ac volutpat eros elementum. Morbi vitae ultricies ligula, sed consequat ligula. Cras lobortis nisi ac dui dapibus dictum. Integer dictum est et risus efficitur, a aliquam dui malesuada. Mauris id ligula at libero fermentum consectetur. Nam bibendum mi non urna consequat, ac luctus purus auctor. Nulla facilisi. Phasellus vehicula magna ut ex efficitur, sed lacinia ligula tempor. Suspendisse potenti.
                 Nullam sed ornare velit. Donec auctor felis eget massa dapibus, at cursus ligula hendrerit. Fusce et ex ut urna sodales tempor. Duis at massa ultricies, tempus nunc ut, varius urna. Nullam tincidunt nibh id nisi iaculis, ac fermentum lectus scelerisque. Vivamus varius risus id urna tincidunt condimentum. Nam sed ipsum euismod, tristique libero nec, hendrerit urna. Donec faucibus nibh sit amet turpis tincidunt, a vehicula ligula aliquet.
