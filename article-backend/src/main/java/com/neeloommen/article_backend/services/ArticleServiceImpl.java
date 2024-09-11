@@ -2,6 +2,7 @@ package com.neeloommen.article_backend.services;
 
 import com.neeloommen.article_backend.entity.ArticleEntity;
 import com.neeloommen.article_backend.models.Article;
+import com.neeloommen.article_backend.models.ArticleInfo;
 import com.neeloommen.article_backend.repositories.ArticleRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class ArticleServiceImpl implements ArticleService{
 
     //DEBUG
     private Article dummyArticle;
+    private List<Article> listArticles;
 
     //Methods
     //Constructors
@@ -38,7 +40,11 @@ public class ArticleServiceImpl implements ArticleService{
                         "                Curabitur dapibus orci in risus gravida, vel pharetra dui viverra. Etiam convallis orci id nisi cursus, a bibendum elit auctor. Aliquam et nisi et turpis tempor scelerisque non eu elit. Vivamus id nunc id nisi fermentum vehicula. In id ligula vitae ipsum posuere convallis. Cras vel tincidunt felis, id suscipit est. Proin gravida libero vel ligula dignissim, et dictum purus cursus. Fusce sit amet risus ut lacus interdum fermentum." +
                         "                Vestibulum gravida dui sed purus condimentum, et feugiat odio ullamcorper. In fringilla lacus sit amet mi venenatis, non tincidunt purus viverra. Nam interdum neque vitae ligula dictum condimentum. Aliquam feugiat felis eu bibendum sollicitudin. Quisque euismod dolor id purus fringilla, ac fermentum nunc maximus. Duis egestas nisi non velit eleifend, eget fringilla elit dapibus. Vivamus nec erat malesuada, venenatis sapien eget, vulputate urna." +
                         "                Sed ut libero quis justo dictum pharetra nec sit amet urna. Proin vitae ipsum ut nisi cursus bibendum eget nec nisi. Nullam tincidunt ligula sed lorem dignissim, nec interdum justo sodales. Curabitur venenatis ipsum et magna interdum, ac tincidunt tortor scelerisque. Vivamus vitae velit ut nulla scelerisque fringilla ut et dolor. In eget felis sit amet odio egestas dignissim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.");
+
+        this.listArticles = List.of(this.dummyArticle, this.dummyArticle, this.dummyArticle, this.dummyArticle);
     }
+
+
 
 //    public ArticleServiceImpl(ArticleRepository _articleRepository){
 //        //this.articleRepository = _articleRepository;
@@ -108,5 +114,24 @@ public class ArticleServiceImpl implements ArticleService{
 
         //DEBUG
         return this.dummyArticle;
+    }
+
+    @Override
+    public List<Long> getAllArticleIds() {
+        List<Long> idList = this.listArticles
+                .stream()
+                .map(article -> article.getId())
+                .collect(Collectors.toList());
+
+        return idList;
+    }
+
+    @Override
+    public ArticleInfo getArticleInfoById(long id) {
+        //Debug
+
+        ArticleInfo temp = new ArticleInfo(this.dummyArticle.getAuthorId(), this.dummyArticle.getTitle());
+
+        return temp;
     }
 }

@@ -1,6 +1,7 @@
 package com.neeloommen.article_backend.services;
 
 import com.neeloommen.article_backend.models.Article;
+import com.neeloommen.article_backend.models.ArticleInfo;
 import org.hibernate.annotations.Comment;
 import org.springframework.stereotype.Component;
 
@@ -12,4 +13,8 @@ public interface ArticleService{
     List<Article> getAllArticles();
 
     Article getArticleById(long _id);
+
+    List<Long> getAllArticleIds();
+
+    ArticleInfo getArticleInfoById(long id);
 }

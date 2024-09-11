@@ -1,8 +1,15 @@
+'use client'
 import ArticleCard from "@/components/ArticleCard/ArticleCard"
 import SummaryCard from "@/components/SummaryCard/SummaryCard"
 
+import { usePathname } from "next/navigation";
+
 
 export default function Page(){
+    
+    const pName = usePathname();
+    const id = pName.split("/")[2];
+
     return(
         <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col items-center sm:items-start w-full h-screen">
@@ -29,7 +36,7 @@ export default function Page(){
             className="w-full h-5/6 px-4 py-2 flex"
           >
             {/* article view */}
-            <ArticleCard />
+            <ArticleCard articleId={id}/>
             <SummaryCard />
           </div>
       </main>
