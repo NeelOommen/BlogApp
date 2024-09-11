@@ -20,9 +20,7 @@ public class WebMvcConfig {
                         .allowedMethods(HttpMethod.GET.name(),
                                 HttpMethod.POST.name()
                                 )
-                        .allowedHeaders(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN,
-                                HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS,
-                                HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS);
+                        .allowedHeaders("*");
             }
         };
     }

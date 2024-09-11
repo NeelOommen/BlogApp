@@ -58,7 +58,7 @@ export default function Home() {
           <Navbar />
 
           <div
-            className="w-full h-full px-4 py-2 flex"
+            className="w-full h-full px-4 py-2 grid grid-cols-5 overflow-y-scroll"
           >
             {data.map((id)=>(
               <MenuCard key={id} articleId={id}/>

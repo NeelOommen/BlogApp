@@ -1,6 +1,39 @@
+'use client';
 import Navbar from "@/components/Navbar/Navbar";
+import { useState } from "react";
 
 export default function Page(){
+    const fetchUrl = 'http://localhost:8080/api/articles/create'
+
+    const [article, setArticle] = useState('')
+    const [isLoading, setIsloading] = useState('')
+    const [title, setTitle] = useState('')
+
+    const postArticle = async () => {
+        setIsloading('Loading, Please Wait')
+        try{
+            const response = await fetch(fetchUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",               
+                },
+                body: JSON.stringify({
+                    "id": 4,
+                    "author_id": 1,
+                    "title": title,
+                    "articleBody": article
+                })
+            })
+
+            const dataJson = response.json()
+            setIsloading('Posted!')
+        }
+        catch(error){
+            setIsloading('Something went wrong')
+        }
+    }
+
+
     return(
         <div>
             <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">
@@ -13,17 +46,33 @@ export default function Page(){
             <div>
                 <div className="font-bold text-4xl mb-4">Write something!</div>                
                 <form>
+                    <label className="font-bold text-lg">Title</label>
+                    <input 
+                        id="titleField"
+                        className="bg-[#353778] p-4 rounded-2xl mb-4 w-full"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+
                     <textarea 
                         id="articleMain"
                         cols={100}
-                        rows={20}
+                        rows={15}
                         className="bg-[#353778] overflow-y-scroll p-4 rounded-2xl"
+                        value={article}
+                        onChange={(e) => setArticle(e.target.value)}
                     />
                 </form>
             </div>
             <div
                 className="h-full w-full flex flex-col items-center"
             >
+                <div className="text-center">
+                    This Article will be sumbitted as written by:
+                    <br />
+                    <span className="font-bold">Author1</span>
+                </div>
+
                 <div
                     className="
                         bg-gradient-to-br from-blue-500 via-amber-500 to-lime-500
@@ -36,9 +85,12 @@ export default function Page(){
                         font-bold
                         hover:scale-110
                     "
+                    onClick={postArticle}
                 >
                     Submit Your Article!
                 </div>
+
+                <div>{isLoading}</div>
 
                 <div
                     className="
@@ -52,6 +104,7 @@ export default function Page(){
                         font-bold
                         hover:scale-110
                     "
+                    onClick={()=>setArticle('')}
                 >
                     Reset Your Article
                 </div>
