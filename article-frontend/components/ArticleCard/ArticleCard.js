@@ -1,5 +1,6 @@
 'use client';
 import useSWR  from "swr"
+import SummaryCard from "../SummaryCard/SummaryCard";
 
 export default function ArticleCard({ articleId }){
 
@@ -60,35 +61,38 @@ export default function ArticleCard({ articleId }){
     )
 
     return(
-        <div
-            className="bg-gradient-to-tr from-indigo-500 via-purple-500 to-yellow-500 
-            bg-size-200 bg-pos-0 hover:bg-pos-n100
-            w-2/3 h-full 
-            px-6 pb-4
-            mx-4
-            text-[#faf8ff] 
-            rounded-2xl
-            transition-all duration-500
-            hover:scale-[103%]
-            "
-        >
-            <div className="h-full w-full overflow-clip p-2">
-                <div
-                    className="w-fit text-4xl font-bold mt-3"
-                >
-                    {data.title}
-                </div>
-                <div
-                    className="w-fit text-lg font-bold my-1"
-                >
-                    by <span>{data.author_id}</span>
-                </div>
-                <div
-                    className="h-full mb-4 overflow-y-scroll"
-                >
-                    {data.articleBody}
+        <>
+            <div
+                className="bg-gradient-to-tr from-indigo-500 via-purple-500 to-yellow-500 
+                bg-size-200 bg-pos-0 hover:bg-pos-n100
+                w-2/3 h-full 
+                px-6 pb-4
+                mx-4
+                text-[#faf8ff] 
+                rounded-2xl
+                transition-all duration-500
+                hover:scale-[103%]
+                "
+            >
+                <div className="h-full w-full overflow-clip p-2">
+                    <div
+                        className="w-fit text-4xl font-bold mt-3"
+                    >
+                        {data.title}
+                    </div>
+                    <div
+                        className="w-fit text-lg font-bold my-1"
+                    >
+                        by <span>{data.author_id}</span>
+                    </div>
+                    <div
+                        className="h-full mb-4 overflow-y-scroll"
+                    >
+                        {data.articleBody}
+                    </div>
                 </div>
             </div>
-        </div>
+            <SummaryCard bodyText={data.articleBody}/>
+        </>
     )
 }
