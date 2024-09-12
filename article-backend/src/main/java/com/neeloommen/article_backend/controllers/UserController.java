@@ -1,7 +1,9 @@
 package com.neeloommen.article_backend.controllers;
 
+import com.neeloommen.article_backend.entity.UserCredentialEntity;
 import com.neeloommen.article_backend.models.User;
 import com.neeloommen.article_backend.services.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +30,11 @@ public class UserController {
     @GetMapping("/show")
     public List<User> getUserList(){
         return userService.getUserList();
+    }
+
+    @PostMapping("/validate")
+    public ResponseEntity<User> validateUser(@RequestBody UserCredentialEntity _user){
+        return userService.validateUser(_user);
     }
 
 }

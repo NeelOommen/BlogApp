@@ -1,6 +1,7 @@
 package com.neeloommen.article_backend.controllers;
 
 import com.neeloommen.article_backend.models.Article;
+import com.neeloommen.article_backend.models.ArticleData;
 import com.neeloommen.article_backend.models.ArticleInfo;
 import com.neeloommen.article_backend.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +51,8 @@ public class ArticleController {
 
 
     @GetMapping("/get_article/{id}")
-    public ResponseEntity<Article> getArticleById(@PathVariable("id") long _id){
-        Article article = null;
+    public ResponseEntity<ArticleData> getArticleById(@PathVariable("id") long _id){
+        ArticleData article = null;
         article = articleService.getArticleById(_id);
 
         return ResponseEntity.ok(article);

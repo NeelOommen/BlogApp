@@ -2,8 +2,8 @@ package com.neeloommen.article_backend.models;
 
 public class Article {
     //Data Members
-    private long id;
-    private long author_id;
+    private Long id;
+    private Long author_id;
     private String title;
     private String articleBody;
 
@@ -14,7 +14,7 @@ public class Article {
         //unused
     }
 
-    public Article(long _id, long _author_id, String _title, String _article_body){
+    public Article(Long _id, Long _author_id, String _title, String _article_body){
         this.id = _id;
         this.author_id = _author_id;
         this.title = _title;
@@ -22,11 +22,11 @@ public class Article {
     }
 
     //setters
-    public void setId(long _id){
+    public void setId(Long _id){
         this.id = _id;
     }
 
-    public void setAuthorId(long _author_id){
+    public void setAuthorId(Long _author_id){
         this.author_id = _author_id;
     }
 
@@ -39,11 +39,11 @@ public class Article {
     }
 
     //getters
-    public long getId(){
+    public Long getId(){
         return this.id;
     }
 
-    public long getAuthorId(){
+    public Long getAuthorId(){
         return this.author_id;
     }
 

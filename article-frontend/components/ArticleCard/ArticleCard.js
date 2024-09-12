@@ -62,6 +62,7 @@ export default function ArticleCard({ articleId }){
 
     return(
         <>
+            {console.log(data)}
             <div
                 className="bg-gradient-to-tr from-indigo-500 via-purple-500 to-yellow-500 
                 bg-size-200 bg-pos-0 hover:bg-pos-n100
@@ -83,7 +84,7 @@ export default function ArticleCard({ articleId }){
                     <div
                         className="w-fit text-lg font-bold my-1"
                     >
-                        by <span>{data.author_id}</span>
+                        by <span>{data.author_name}</span>
                     </div>
                     <div
                         className="h-full mb-4 overflow-y-scroll"

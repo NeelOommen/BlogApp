@@ -20,7 +20,7 @@ public class User {
     }
 
     //setters
-    public void setId(long _id){
+    public void setId(Long _id){
         this.id = _id;
     }
 

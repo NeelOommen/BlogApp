@@ -7,19 +7,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="users")
+@Table(name="credentials")
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserEntity {
-    //Data members
+public class UserCredentialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter @Setter private long id;
 
-    @Column(name = "user_name")
-    @Getter @Setter private String userName;
+    @Column(name="email")
+    @Getter @Setter private String email;
 
-    @Column(name = "email_id")
-    @Getter @Setter private String emailId;
-
+    @Column(name="password")
+    @Getter @Setter private String password;
 }

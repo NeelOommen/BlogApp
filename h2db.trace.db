@@ -1,0 +1,136 @@
+2024-09-12 13:52:26.797867+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "TITLE CHARACTER VARYING(255)": "U&'Scientists say they have discovered a new species of orangutans on Indonesia\\... (3161)"; SQL statement:
+insert into articles values(1, 1, 'New Species', 'Scientists say they have discovered a new species of orangutans on Indonesia’s island of Sumatra.
+The population differs in several ways from the two existing orangutan species found in Sumatra and the neighboring island of Borneo.
+The orangutans were found inside North Sumatra’s Batang Toru forest, the science publication Current Biology reported.
+Researchers named the new species the Tapanuli orangutan. They say the animals are considered a new species because of genetic, skeletal and tooth differences.
+Michael Kruetzen is a geneticist with the University of Zurich who has studied the orangutans for several years. He said he was excited to be part of the unusual discovery of a new great ape in the present day. He noted that most great apes are currently considered endangered or severely endangered.
+Gorillas, chimpanzees and bonobos also belong to the great ape species.
+Orangutan – which means person of the forest in the Indonesian and Malay languages - is the world’s biggest tree-living mammal. The orange-haired animals can move easily among the trees because their arms are longer than their legs. They live more lonely lives than other great apes, spending a lot of time sleeping and eating fruit in the forest.
+The new study said fewer than 800 of the newly-described orangutans exist. Their low numbers make the group the most endangered of all the great ape species.
+They live within an area covering about 1,000 square kilometers. The population is considered highly vulnerable. That is because the environment which they depend on is greatly threatened by development.
+Researchers say if steps are not taken quickly to reduce the current and future threats, the new species could become extinct “within our lifetime.”
+Research into the new species began in 2013, when an orangutan protection group in Sumatra found an injured orangutan in an area far away from the other species. The adult male orangutan had been beaten by local villagers and died of his injuries. The complete skull was examined by researchers.
+Among the physical differences of the new species are a notably smaller head and frizzier hair. The Tapanuli orangutans also have a different diet and are found only in higher forest areas.
+There is no unified international system for recognizing new species. But to be considered, discovery claims at least require publication in a major scientific publication.
+Russell Mittermeier is head of the primate specialist group at the International Union for the Conservation of Nature. He called the finding a “remarkable discovery.” He said it puts responsibility on the Indonesian government to help the species survive.
+Matthew Nowak is one of the writers of the study. He told the Associated Press that there are three groups of the Tapanuli orangutans that are separated by non-protected land.He said forest land needs to connect the separated groups.
+In addition, the writers of the study are recommending that plans for a hydropower center in the area be stopped by the government.
+It also recommended that remaining forest in the Sumatran area where the orangutans live be protected.
+I’m Bryan Lynn.
+') [22001-224]
+2024-09-12 13:53:18.875077+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "ARTICLEBODY" not found; SQL statement:
+alter table articles alter column articleBody character large object [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:775)
+	at org.h2.command.Parser.columnIfTableExists(Parser.java:8585)
+	at org.h2.command.Parser.parseAlterTableAlter(Parser.java:8171)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:8157)
+	at org.h2.command.Parser.parseAlter(Parser.java:7211)
+	at org.h2.command.Parser.parsePrepared(Parser.java:650)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp.query(WebApp.java:1119)
+	at org.h2.server.web.WebApp.process(WebApp.java:245)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-09-12 13:53:38.780519+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "TITLE CHARACTER VARYING(255)": "U&'Scientists say they have discovered a new species of orangutans on Indonesia\\... (3161)"; SQL statement:
+insert into articles values(1, 1, 'New Species', 'Scientists say they have discovered a new species of orangutans on Indonesia’s island of Sumatra.
+The population differs in several ways from the two existing orangutan species found in Sumatra and the neighboring island of Borneo.
+The orangutans were found inside North Sumatra’s Batang Toru forest, the science publication Current Biology reported.
+Researchers named the new species the Tapanuli orangutan. They say the animals are considered a new species because of genetic, skeletal and tooth differences.
+Michael Kruetzen is a geneticist with the University of Zurich who has studied the orangutans for several years. He said he was excited to be part of the unusual discovery of a new great ape in the present day. He noted that most great apes are currently considered endangered or severely endangered.
+Gorillas, chimpanzees and bonobos also belong to the great ape species.
+Orangutan – which means person of the forest in the Indonesian and Malay languages - is the world’s biggest tree-living mammal. The orange-haired animals can move easily among the trees because their arms are longer than their legs. They live more lonely lives than other great apes, spending a lot of time sleeping and eating fruit in the forest.
+The new study said fewer than 800 of the newly-described orangutans exist. Their low numbers make the group the most endangered of all the great ape species.
+They live within an area covering about 1,000 square kilometers. The population is considered highly vulnerable. That is because the environment which they depend on is greatly threatened by development.
+Researchers say if steps are not taken quickly to reduce the current and future threats, the new species could become extinct “within our lifetime.”
+Research into the new species began in 2013, when an orangutan protection group in Sumatra found an injured orangutan in an area far away from the other species. The adult male orangutan had been beaten by local villagers and died of his injuries. The complete skull was examined by researchers.
+Among the physical differences of the new species are a notably smaller head and frizzier hair. The Tapanuli orangutans also have a different diet and are found only in higher forest areas.
+There is no unified international system for recognizing new species. But to be considered, discovery claims at least require publication in a major scientific publication.
+Russell Mittermeier is head of the primate specialist group at the International Union for the Conservation of Nature. He called the finding a “remarkable discovery.” He said it puts responsibility on the Indonesian government to help the species survive.
+Matthew Nowak is one of the writers of the study. He told the Associated Press that there are three groups of the Tapanuli orangutans that are separated by non-protected land.He said forest land needs to connect the separated groups.
+In addition, the writers of the study are recommending that plans for a hydropower center in the area be stopped by the government.
+It also recommended that remaining forest in the Sumatran area where the orangutans live be protected.
+I’m Bryan Lynn.
+') [22001-224]
+2024-09-12 13:57:18.526038+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 14:02:01.196955+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 14:06:43.837895+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 14:30:08.901278+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 14:36:05.505436+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 14:39:17.531767+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "update users user_name[*]='user2' where id=2"; expected "SET"; SQL statement:
+update users user_name='user2' where id=2 [42001-224]
+2024-09-12 16:12:34.851733+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 16:13:18.382374+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 16:18:00.529759+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 16:18:34.125928+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 16:19:21.792209+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 16:19:50.319216+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-12 16:22:29.393923+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]

@@ -1,63 +1,28 @@
 package com.neeloommen.article_backend.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
-@Table(name = "articles")
+@Table(name="articles")
+@NoArgsConstructor
+@AllArgsConstructor
 public class ArticleEntity {
     //Data Members
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private long author_id;
-    private String title;
-    private String articleBody;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter @Setter private Long id;
 
-    //Methods
-    //Constructors
-    //Default
-    public ArticleEntity(){
-        //unused
-    }
+    @Column(name = "author_id")
+    @Getter @Setter private Long author_id;
 
-    public ArticleEntity(long _id, long _author_id, String _title, String _article_body){
-        this.id = _id;
-        this.author_id = _author_id;
-        this.title = _title;
-        this.articleBody = _article_body;
-    }
+    @Column(name = "title")
+    @Getter @Setter private String title;
 
-    //setters
-    public void setId(long _id){
-        this.id = _id;
-    }
-
-    public void setAuthorId(long _author_id){
-        this.author_id = _author_id;
-    }
-
-    public void setTitle(String _title){
-        this.title = _title;
-    }
-
-    public void setArticleBody(String _articleBody){
-        this.articleBody = _articleBody;
-    }
-
-    //getters
-    public long getId(){
-        return this.id;
-    }
-
-    public long getAuthorId(){
-        return this.author_id;
-    }
-
-    public String getTitle(){
-        return this.title;
-    }
-
-    public String getArticleBody(){
-        return this.articleBody;
-    }
+    @Column(name = "article_body")
+    @Getter @Setter private String articleBody;
 }
