@@ -1,7 +1,8 @@
 'use client';
 import { useRouter } from "next/navigation";
+import { SignOut } from "@/app/utils";
 
-export default function Navbar(){
+export default function Navbar({ sessionCtx }){
     const router = useRouter();
 
     return(
@@ -19,7 +20,20 @@ export default function Navbar(){
             >
               <span className="mx-3 cursor-pointer hover:text-amber-400 transition-all duration-300" onClick={() => router.push('http://localhost:3000')}>Home</span>
               <span className="mx-3 cursor-pointer hover:text-amber-400 transition-all duration-300" onClick={() => router.push('http://localhost:3000/write-post')}>Post an Article</span>
-              <span className="mx-3 cursor-pointer hover:text-amber-400 transition-all duration-300">Log In</span>
+              <span className="mx-3 cursor-pointer hover:text-amber-400 transition-all duration-300" onClick={() => router.push('http://localhost:3000/login')}>
+                {
+                  (sessionCtx.status == "authenticated")
+                  ?
+                  `Logged in as ${sessionCtx.data.user.name}`:'Log In'
+                }
+              </span>
+              {
+                (sessionCtx.status == "authenticated")
+                ?   
+                <span className="mx-3 cursor-pointer hover:text-amber-400 transition-all duration-300" onClick={() => SignOut()}>Log Out</span>
+                :
+                <></>
+              }
             </span>
           </div>
     )

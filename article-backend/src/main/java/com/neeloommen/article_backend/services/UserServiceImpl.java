@@ -3,6 +3,7 @@ package com.neeloommen.article_backend.services;
 import com.neeloommen.article_backend.entity.UserCredentialEntity;
 import com.neeloommen.article_backend.entity.UserEntity;
 import com.neeloommen.article_backend.models.User;
+import com.neeloommen.article_backend.models.UserSignUp;
 import com.neeloommen.article_backend.repositories.UserCredentialsRepository;
 import com.neeloommen.article_backend.repositories.UserRepository;
 import org.springframework.http.ResponseEntity;
@@ -26,11 +27,24 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
-    public User saveUser(User _user){
-        UserEntity userEntity = new UserEntity(_user.getId(), _user.getUserName(), _user.getEmailId());
-        //userRepository.save(userEntity);
+    public User saveUser(UserSignUp _user){
+        //make user
+        UserEntity newUser = new UserEntity(
+                1,//find out how to deal with auto generated
+                _user.getUsername(),
+                _user.getEmail()
+        );
+        userRepository.save(newUser);
+        //make user cred
+        UserCredentialEntity newUserCred = new UserCredentialEntity(
+                1,//find out how to deal with auto generated
+                _user.getEmail(),
+                _user.getPassword()
+        );
+        userCredentialsRepository.save(newUserCred);
 
-        return _user;
+
+        return null;
     }
 
     @Override
@@ -54,13 +68,25 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ResponseEntity<User> validateUser(UserCredentialEntity user) {
+    public User validateUser(UserCredentialEntity user) {
         Optional<UserCredentialEntity> checkUser = Optional.ofNullable(userCredentialsRepository.findByEmail(user.getEmail()));
         if(checkUser.isPresent()){
-            User userobj = userRepository.findByEmailId(checkUser.get().getEmail());
-            return ResponseEntity.ok(userobj);
+            UserCredentialEntity pwordCheck = checkUser.get();
+            //check if the passwords match
+            if(pwordCheck.getPassword().equals(user.getPassword())){
+                //user validated return user data
+                UserCredentialEntity userEntity = checkUser.get();
+                UserEntity userobj = userRepository.findByEmailId(userEntity.getEmail());
+                User resultUser = new User(
+                        userobj.getId(),
+                        userobj.getUserName(),
+                        userobj.getEmailId()
+                );
+                return resultUser;
+            }
         }
+        //some validation has failed return null
 
-        return (ResponseEntity<User>) ResponseEntity.notFound();
+        return null;
     }
 }

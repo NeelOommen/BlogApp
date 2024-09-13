@@ -2,6 +2,8 @@ package com.neeloommen.article_backend.controllers;
 
 import com.neeloommen.article_backend.entity.UserCredentialEntity;
 import com.neeloommen.article_backend.models.User;
+import com.neeloommen.article_backend.models.UserSignUp;
+import com.neeloommen.article_backend.models.UserVerified;
 import com.neeloommen.article_backend.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +25,7 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public User saveUser(@RequestBody User _user){
+    public User saveUser(@RequestBody UserSignUp _user){
         return userService.saveUser(_user);
     }
 
@@ -33,8 +35,20 @@ public class UserController {
     }
 
     @PostMapping("/validate")
-    public ResponseEntity<User> validateUser(@RequestBody UserCredentialEntity _user){
-        return userService.validateUser(_user);
+    public UserVerified validateUser(@RequestBody UserCredentialEntity _user){
+        System.out.println("VALIDATION HIT");
+        User checked = userService.validateUser(_user);
+        if(checked == null){
+            return null;
+        }
+
+        UserVerified result = new UserVerified(
+                checked.getId(),
+                checked.getUserName(),
+                checked.getEmailId()
+        );
+
+        return result;
     }
 
 }

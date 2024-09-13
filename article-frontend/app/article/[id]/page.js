@@ -4,12 +4,23 @@ import Navbar from "@/components/Navbar/Navbar";
 import SummaryCard from "@/components/SummaryCard/SummaryCard"
 
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { auth } from "@/auth";
+import { useSession } from "next-auth/react";
 
 
 export default function Page(){
     
     const pName = usePathname();
     const id = pName.split("/")[2];
+
+    const router = useRouter();
+
+    const session = useSession();
+
+    if(!session?.status == "authenticated"){
+      router.push("/login");
+    }
 
     return(
         <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">

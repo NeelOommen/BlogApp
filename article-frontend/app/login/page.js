@@ -1,67 +1,108 @@
-'use client';
+import { signIn, auth } from "@/auth"
+import { redirect } from "next/navigation";
 
-import { useState } from "react";
+export default async function Page(){
+    const session = await auth();
 
-export default function Page(){
+    if(session?.user){
+        redirect('http://localhost:3000')
+    };
 
-    const [email, setEmail] = useState('')
-    const [pword, setPword] = useState('')
     return(
-    <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col items-center sm:items-start w-full h-screen p-8">
-          <div
-            className="font-bold text-6xl"
-          >
-            Login
-          </div>
-          <div
-            className="h-full w-96 my-4 rounded-2xl border-2 p-6"
-          >
-            <form>
-              <div
-                className="font-bold text-2xl my-2"
-              >
-                Email
-              </div>
+        <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col items-center sm:items-start w-full h-screen">
 
-              <input 
-                type="email"
-                className="bg-[#353778] rounded-2xl h-12 w-full p-4"
-                value={email}
-                onChange={(e)=>setEmail(e.target.value)}
-              />
+          <div
+            className="w-full h-full px-4 py-8 flex"
+          >
+            <div className="border-2 rounded-2xl h-full my-4 mx-4 w-1/2 p-8">
+              <div className="font-bold text-6xl mb-10">Login</div>
+              <form
+                  action={ async (formData) => {
+                      "use server";
+                      const user = await signIn("credentials", formData);
 
-              <div
-                className="font-bold text-2xl my-2"
+                      console.log('login ' + JSON.stringify(user))
+                  }}
               >
-                Password
-              </div>
-              <input 
-                type="password"
-                className="bg-[#353778] rounded-2xl h-12 w-full p-4"
-                value={pword}
-                onChange={(e)=>{setPword(e.target.value)}}
-              />
-            </form>
-            <div
-                    className="
-                        bg-gradient-to-br from-blue-500 via-amber-500 to-lime-500
+                  <div>
+                    <div className="font-bold text-2xl my-2">Email</div>
+                    <input 
+                      className="rounded-2xl bg-[#353778] border-2 h-12 w-full my-4 p-4"
+                      name="email"
+                      type="email"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold text-2xl mys-2">Password</div>
+                    <input 
+                      className="rounded-2xl bg-[#353778] border-2 h-12 w-full my-4 p-4"
+                      type="password"
+                      name="password"
+                    />
+                  </div>
+                  <button
+                    className="bg-gradient-to-br from-blue-500 via-amber-500 to-lime-500
                         bg-size-200 bg-pos-0 hover:bg-pos-100
                         transition-all duration-300
                         p-4
                         rounded-2xl
                         w-fit
-                        ml-auto mr-auto
-                        mt-10
+                        mt-auto mb-auto
                         font-bold
-                        hover:scale-110
-                    "
-                >
-                    Login
-                </div>
-          </div>
+                        hover:scale-110"
+                  >Sign in</button>
+              </form>
+            </div>
 
-         
+            <div
+              className="border-2 rounded-2xl h-full my-4 mx-4 w-1/2 p-8"
+            >
+              <div className="font-bold text-6xl mb-10">Sign Up</div>
+              <form
+                action={
+                  async (formData) => {
+                    "use server";
+
+                    const response = await fetch('http://localhost:8080/api/user')
+                  }
+                }
+              >
+              <div>
+                  <div className="font-bold text-2xl my-2">Email</div>
+                    <input 
+                      className="rounded-2xl bg-[#353778] border-2 h-12 w-full my-4 p-4"
+                      type="email"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold text-2xl my-2">User Name</div>
+                    <input 
+                      className="rounded-2xl bg-[#353778] border-2 h-12 w-full my-4 p-4"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold text-2xl my-2">Create Password</div>
+                    <input 
+                      className="rounded-2xl bg-[#353778] border-2 h-12 w-full my-4 p-4"
+                      type="text"
+                    />
+                  </div>
+                  <button
+                    className="bg-gradient-to-br from-blue-500 via-amber-500 to-lime-500
+                        bg-size-200 bg-pos-0 hover:bg-pos-100
+                        transition-all duration-300
+                        p-4
+                        rounded-2xl
+                        w-fit
+                        mt-auto mb-auto
+                        font-bold
+                        hover:scale-110"
+                  >Create Account</button>
+              </form>
+            </div>
+          </div>
       </main>
       {/* <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         add footer

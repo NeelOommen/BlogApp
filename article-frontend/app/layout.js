@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import SessionWrapper from "@/components/SessionWrapper/SessionWrapper";
 import { SessionProvider } from "next-auth/react";
+import SessionWrapper from "@/components/SessionWrapper/SessionWrapper";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,6 +15,7 @@ const geistMono = localFont({
 });
 
 export default function RootLayout({ children }) {
+
   return (
     
       <html lang="en">

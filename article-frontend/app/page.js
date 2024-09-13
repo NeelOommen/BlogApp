@@ -3,18 +3,28 @@ import MenuCard from "@/components/MenuCard/MenuCard";
 import Navbar from "@/components/Navbar/Navbar";
 import Image from "next/image";
 import useSWR from "swr";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+
 
 export default function Home() {
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  const fetchUrl = 'http://localhost:8080/api/articles/list_article_ids'
+  const fetchUrl = 'http://localhost:8080/api/articles/list_article_ids';
   const { data, error, isLoading } = useSWR([fetchUrl], fetcher);
 
+  const router = useRouter();
+  
+  const session = useSession();
+
+  if(!session.status == "authenticated"){
+    router.push("/login");
+  }
 
   if(error) return(
     <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col items-center sm:items-start w-full h-screen">
-          <Navbar />
+          <Navbar sessionCtx={session}/>
 
           <div
             className="w-full h-full px-4 py-2"
@@ -37,7 +47,7 @@ export default function Home() {
   if(isLoading) return(
     <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col items-center sm:items-start w-full h-screen">
-          <Navbar />
+          <Navbar sessionCtx={session}/>
 
           <div
             className="w-full h-full px-4 py-2"
@@ -55,7 +65,7 @@ export default function Home() {
   return (
     <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col items-center sm:items-start w-full h-screen">
-          <Navbar />
+          <Navbar sessionCtx={session}/>
 
           <div
             className="w-full h-full px-4 py-2 grid grid-cols-5 overflow-y-scroll"

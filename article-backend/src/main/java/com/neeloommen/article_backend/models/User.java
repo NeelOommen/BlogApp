@@ -12,6 +12,7 @@ public class User {
     public User(){
         //unused default
     }
+
     //parameterized
     public User(long _id, String _userName, String _emailId){
         this.id = _id;
