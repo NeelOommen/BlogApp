@@ -28,15 +28,18 @@ public class ArticleServiceImpl implements ArticleService{
     }
 
     @Override
-    public Article createArticle(Article _article) {
-        ArticleEntity articleEntity = new ArticleEntity(
-                _article.getId(),
-                _article.getAuthorId(),
-                _article.getTitle(),
-                _article.getArticleBody());
-        articleRepository.save(articleEntity);
+    public ArticleEntity createArticle(ArticleData _article) {
+        //get author id
+        UserEntity author = userRepository.findByUserName(_article.getAuthor_name());
 
-        return _article;
+        ArticleEntity newArticle = new ArticleEntity(
+                author.getId(),
+                _article.getTitle(),
+                _article.getArticleBody()
+        );
+        articleRepository.save(newArticle);
+
+        return newArticle;
     }
 
     @Override

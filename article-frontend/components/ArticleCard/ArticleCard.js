@@ -79,12 +79,12 @@ export default function ArticleCard({ articleId }){
                     <div
                         className="w-fit text-4xl font-bold mt-3"
                     >
-                        {data.title}
+                        {data.author_name}
                     </div>
                     <div
                         className="w-fit text-lg font-bold my-1"
                     >
-                        by <span>{data.author_name}</span>
+                        by <span>{data.title}</span>
                     </div>
                     <div
                         className="h-full mb-4 overflow-y-scroll"

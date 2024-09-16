@@ -7,8 +7,11 @@ import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class UserSignUp {
-    @Getter @Setter private String email;
-    @Getter @Setter private String username;
-    @Getter @Setter private String password;
+    private long id;
+    private String email;
+    private String username;
+    private String password;
 }

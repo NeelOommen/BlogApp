@@ -170,3 +170,18 @@ INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TIT
 2024-09-13 20:03:12.085253+05:30 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 4 */) (3161)"; SQL statement:
 INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-16 10:31:38.016564+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-16 10:40:42.279624+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-16 10:42:50.221568+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3161 /* table: -3 id: 3 */) (3161)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]
+2024-09-16 10:57:17.342107+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table users [*]modify column id bigint auto_increment"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+alter table users modify column id bigint auto_increment [42001-224]
+2024-09-16 12:10:33.900173+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARTICLE_BODY CHARACTER VARYING(255)": "SPACE(3142 /* table: -3 id: 236 */) (3142)"; SQL statement:
+INSERT INTO "PUBLIC"."ARTICLES_COPY_3_0"("AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE") OVERRIDING SYSTEM VALUE SELECT "AUTHOR_ID", "ID", "ARTICLE_BODY", "TITLE" FROM "PUBLIC"."ARTICLES" [22001-224]

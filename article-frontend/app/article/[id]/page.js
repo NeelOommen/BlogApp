@@ -18,14 +18,14 @@ export default function Page(){
 
     const session = useSession();
 
-    if(!session?.status == "authenticated"){
+    if(session?.status === "unauthenticated"){
       router.push("/login");
     }
 
     return(
         <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col items-center sm:items-start w-full h-screen">
-          <Navbar />
+          <Navbar sessionCtx={session}/>
 
           <div
             className="w-full h-5/6 px-4 py-2 flex"

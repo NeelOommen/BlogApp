@@ -1,6 +1,7 @@
 package com.neeloommen.article_backend.controllers;
 
 import com.neeloommen.article_backend.entity.UserCredentialEntity;
+import com.neeloommen.article_backend.entity.UserEntity;
 import com.neeloommen.article_backend.models.User;
 import com.neeloommen.article_backend.models.UserSignUp;
 import com.neeloommen.article_backend.models.UserVerified;
@@ -25,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public User saveUser(@RequestBody UserSignUp _user){
+    public UserEntity saveUser(@RequestBody UserSignUp _user){
         return userService.saveUser(_user);
     }
 

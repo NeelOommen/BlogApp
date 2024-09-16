@@ -1,5 +1,6 @@
 package com.neeloommen.article_backend.controllers;
 
+import com.neeloommen.article_backend.entity.ArticleEntity;
 import com.neeloommen.article_backend.models.Article;
 import com.neeloommen.article_backend.models.ArticleData;
 import com.neeloommen.article_backend.models.ArticleInfo;
@@ -27,7 +28,7 @@ public class ArticleController {
     }
 
     @PostMapping("/create")
-    public Article createArticle(@RequestBody Article _article){
+    public ArticleEntity createArticle(@RequestBody ArticleData _article){
         return articleService.createArticle(_article);
     }
 

@@ -27,24 +27,21 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
-    public User saveUser(UserSignUp _user){
+    public UserEntity saveUser(UserSignUp _user){
         //make user
         UserEntity newUser = new UserEntity(
-                1,//find out how to deal with auto generated
                 _user.getUsername(),
                 _user.getEmail()
         );
         userRepository.save(newUser);
         //make user cred
         UserCredentialEntity newUserCred = new UserCredentialEntity(
-                1,//find out how to deal with auto generated
                 _user.getEmail(),
                 _user.getPassword()
         );
         userCredentialsRepository.save(newUserCred);
 
-
-        return null;
+        return newUser;
     }
 
     @Override

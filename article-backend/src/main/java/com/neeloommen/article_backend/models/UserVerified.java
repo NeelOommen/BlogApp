@@ -7,8 +7,10 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class UserVerified {
-    @Getter @Setter private long _id;
-    @Getter @Setter private String name;
-    @Getter @Setter private String email;
+    private long _id;
+    private String name;
+    private String email;
 }

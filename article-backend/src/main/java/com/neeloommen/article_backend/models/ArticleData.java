@@ -7,10 +7,17 @@ import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class ArticleData {
-    @Getter @Setter private long id;
-    @Getter @Setter private String author_name;
-    @Getter @Setter private String title;
-    @Getter @Setter private String articleBody;
+    private long id;
+    private String title;
+    private String author_name;
+    private String articleBody;
 
+    public ArticleData(String _aName, String _title, String _body){
+        this.author_name = _aName;
+        this.title = _title;
+        this.articleBody = _body;
+    }
 }

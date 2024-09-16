@@ -5,6 +5,7 @@ import Image from "next/image";
 import useSWR from "swr";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
   
   const session = useSession();
 
-  if(!session.status == "authenticated"){
+  if(session.user){
     router.push("/login");
   }
 

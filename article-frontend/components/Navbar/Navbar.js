@@ -1,9 +1,16 @@
 'use client';
 import { useRouter } from "next/navigation";
 import { SignOut } from "@/app/utils";
+import { useEffect, useState } from "react";
 
 export default function Navbar({ sessionCtx }){
     const router = useRouter();
+
+    const [rerender, setRerender] = useState(false);
+
+    useEffect(() => {
+
+    }, [rerender]);
 
     return(
         <div
@@ -30,7 +37,10 @@ export default function Navbar({ sessionCtx }){
               {
                 (sessionCtx.status == "authenticated")
                 ?   
-                <span className="mx-3 cursor-pointer hover:text-amber-400 transition-all duration-300" onClick={() => SignOut()}>Log Out</span>
+                <span className="mx-3 cursor-pointer hover:text-amber-400 transition-all duration-300" onClick={() => {
+                  SignOut();
+                  setRerender(!rerender);
+                }}>Log Out</span>
                 :
                 <></>
               }

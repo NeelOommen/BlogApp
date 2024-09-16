@@ -11,18 +11,27 @@ import lombok.Setter;
 @Table(name="articles")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class ArticleEntity {
     //Data Members
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Getter @Setter private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "author_id")
-    @Getter @Setter private Long author_id;
+    private Long author_id;
 
     @Column(name = "title")
-    @Getter @Setter private String title;
+    private String title;
 
     @Column(name = "article_body")
-    @Getter @Setter private String articleBody;
+    private String articleBody;
+
+    public ArticleEntity(Long _author_id, String _title, String _body){
+        this.author_id = _author_id;
+        this.title = _title;
+        this.articleBody = _body;
+    }
 }

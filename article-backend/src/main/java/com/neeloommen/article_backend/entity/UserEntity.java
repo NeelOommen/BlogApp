@@ -10,16 +10,23 @@ import lombok.Setter;
 @Table(name="users")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class UserEntity {
     //Data members
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Getter @Setter private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
 
     @Column(name = "user_name")
-    @Getter @Setter private String userName;
+    private String userName;
 
     @Column(name = "email_id")
-    @Getter @Setter private String emailId;
+    private String emailId;
 
+    public UserEntity(String _userName, String _emailId){
+        this.userName = _userName;
+        this.emailId = _emailId;
+    }
 }

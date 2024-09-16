@@ -1,27 +1,15 @@
 package com.neeloommen.article_backend.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class ArticleInfo {
     private String author_id;
     private String title;
-
-    public ArticleInfo(String _aId, String _title){
-        this.author_id = _aId;
-        this.title = _title;
-    }
-
-    public void setTitle(String _title){
-        this.title = _title;
-    }
-
-    public void setAuthor_id(String _aId){
-        this.author_id = _aId;
-    }
-
-    public String getAuthor_id(){
-        return this.author_id;
-    }
-
-    public String getTitle(){
-        return this.title;
-    }
 }

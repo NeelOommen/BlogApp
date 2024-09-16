@@ -1,6 +1,8 @@
 'use client';
 import Navbar from "@/components/Navbar/Navbar";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Page(){
     const fetchUrl = 'http://localhost:8080/api/articles/create'
@@ -8,6 +10,15 @@ export default function Page(){
     const [article, setArticle] = useState('')
     const [isLoading, setIsloading] = useState('')
     const [title, setTitle] = useState('')
+
+    const session = useSession();
+    console.log("article " + JSON.stringify(session));
+
+    const router = useRouter();
+
+    if(session.status == "unauthenticated"){
+        router.push("/login");
+      }
 
     const postArticle = async () => {
         setIsloading('Loading, Please Wait')
@@ -18,8 +29,7 @@ export default function Page(){
                     "Content-Type": "application/json",               
                 },
                 body: JSON.stringify({
-                    "id": 4,
-                    "author_id": 1,
+                    "author_name": session.data.user.name,
                     "title": title,
                     "articleBody": article
                 })
@@ -38,7 +48,7 @@ export default function Page(){
         <div>
             <div className="items-center justify-items-center bg-[#111344] min-h-screen min-w-screen font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col items-center sm:items-start w-full h-screen">
-          <Navbar />
+          <Navbar sessionCtx={session}/>
 
           <div
             className="w-full h-5/6 px-4 py-2 flex mt-4"
@@ -70,7 +80,7 @@ export default function Page(){
                 <div className="text-center">
                     This Article will be sumbitted as written by:
                     <br />
-                    <span className="font-bold">Author1</span>
+                    <span className="font-bold">{session.data.user.name}</span>
                 </div>
 
                 <div
