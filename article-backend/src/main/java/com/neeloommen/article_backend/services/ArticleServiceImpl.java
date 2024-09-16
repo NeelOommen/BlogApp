@@ -7,10 +7,8 @@ import com.neeloommen.article_backend.models.ArticleData;
 import com.neeloommen.article_backend.models.ArticleInfo;
 import com.neeloommen.article_backend.repositories.ArticleRepository;
 import com.neeloommen.article_backend.repositories.UserRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

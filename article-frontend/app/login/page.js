@@ -6,7 +6,7 @@ export default async function Page(){
     console.log(JSON.stringify(session))
 
     if(session?.user){
-      redirect('http://localhost:3000');
+      redirect(process.env.NEXT_PUBLIC_UI_HOME);
     }
 
     return(
@@ -28,7 +28,7 @@ export default async function Page(){
                       console.log(JSON.stringify(session))
 
                       if(session.user){
-                        redirect('http://localhost:3000');
+                        redirect(NEXT_PUBLIC_UI_HOME);
                       }
 
                   }}
@@ -77,7 +77,7 @@ export default async function Page(){
                         data[key] = value;
                     });
 
-                    const response = await fetch('http://localhost:8080/api/user/save',{
+                    const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + process.env.NEXT_PUBLIC_CREATE_USER,{
                       method: "POST",
                       headers: {
                         "Content-Type": "application/json"

@@ -18,7 +18,7 @@ export default function Page(){
 
     const session = useSession();
 
-    if(session?.status === "unauthenticated"){
+    if(session?.status == "unauthenticated"){
       router.push("/login");
     }
 

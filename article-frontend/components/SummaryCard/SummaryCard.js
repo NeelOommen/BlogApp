@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export default function SummaryCard({ bodyText }){
-    const fetchUrl = 'http://localhost:8000/summarize'
+    const fetchUrl = process.env.NEXT_PUBLIC_GET_SUMMARY
     
     const [data, setData] = useState()
     const [isLoading, setIsloading] = useState(true)

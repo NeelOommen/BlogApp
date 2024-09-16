@@ -1,6 +1,5 @@
 package com.neeloommen.article_backend.entity;
 
-import com.neeloommen.article_backend.repositories.UserCredentialsRepository;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function Page(){
-    const fetchUrl = 'http://localhost:8080/api/articles/create'
+    const fetchUrl = process.env.NEXT_PUBLIC_BASE_URL + process.env.NEXT_PUBLIC_ARTICLE_CREATE;
 
     const [article, setArticle] = useState('')
     const [isLoading, setIsloading] = useState('')

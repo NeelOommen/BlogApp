@@ -5,7 +5,7 @@ import SummaryCard from "../SummaryCard/SummaryCard";
 export default function ArticleCard({ articleId }){
 
     const fetcher = (...args) => fetch(...args).then((res) => res.json());
-    const article_url = `http://localhost:8080/api/articles/get_article/${articleId}`;
+    const article_url = process.env.NEXT_PUBLIC_BASE_URL + process.env.NEXT_PUBLIC_GET_ARTICLE + `${articleId}`;
     const { data, error, isLoading } = useSWR([article_url], fetcher);
 
     if(error) return(

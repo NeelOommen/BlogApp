@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 export default function MenuCard({ articleId }){
     const fetcher = (...args) => fetch(...args).then((res)=>res.json());
-    const fetchUrl = `http://localhost:8080/api/articles/get_info/${articleId}`;
+    const fetchUrl = process.env.NEXT_PUBLIC_BASE_URL + process.env.NEXT_PUBLIC_GET_ARTICLE_INFO + `${articleId}`;
     const { data, error, isLoading } = useSWR([fetchUrl], fetcher);
 
     const router = useRouter();

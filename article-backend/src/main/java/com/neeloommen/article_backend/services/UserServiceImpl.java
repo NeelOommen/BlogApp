@@ -6,7 +6,6 @@ import com.neeloommen.article_backend.models.User;
 import com.neeloommen.article_backend.models.UserSignUp;
 import com.neeloommen.article_backend.repositories.UserCredentialsRepository;
 import com.neeloommen.article_backend.repositories.UserRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

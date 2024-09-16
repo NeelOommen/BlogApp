@@ -6,7 +6,6 @@ import com.neeloommen.article_backend.models.User;
 import com.neeloommen.article_backend.models.UserSignUp;
 import com.neeloommen.article_backend.models.UserVerified;
 import com.neeloommen.article_backend.services.UserService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
